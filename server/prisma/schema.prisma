@@ -1,0 +1,67 @@
+// prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Utente {
+  id                String    @id @default(uuid())
+  nome              String
+  email             String    @unique
+  passwordHash      String    @map("password_hash")
+  dataRegistrazione DateTime  @default(now()) @map("data_registrazione")
+
+  alimenti          Alimento[]
+  ricette           Ricetta[]
+  registroConsumi   RegistroConsumi[]
+
+  @@map("utente")
+}
+
+model Alimento {
+  id             String   @id @default(uuid())
+  idUtente       String   @map("id_utente")
+  nome           String
+  categoria      String
+  quantita       Decimal  @db.Decimal(10, 2)
+  unitaMisura    String   @map("unita_misura")
+  dataScadenza   DateTime @map("data_scadenza") @db.Date
+  stato          String   @default("Fresco")
+  dataInserimento DateTime @default(now()) @map("data_inserimento")
+
+  utente         Utente   @relation(fields: [idUtente], references: [id], onDelete: Cascade)
+
+  @@map("alimento")
+}
+
+model Ricetta {
+  id                 String   @id @default(uuid())
+  idUtente           String   @map("id_utente")
+  titolo             String
+  tempoPreparazione  Int?     @map("tempo_preparazione")
+  contenutoJson      Json     @map("contenuto_json")
+  notaAntiSpreco     String?  @map("nota_anti_spreco")
+  dataCreazione      DateTime @default(now()) @map("data_creazione")
+
+  utente             Utente   @relation(fields: [idUtente], references: [id], onDelete: Cascade)
+
+  @@map("ricetta")
+}
+
+model RegistroConsumi {
+  id            String   @id @default(uuid())
+  idUtente      String   @map("id_utente")
+  nomeAlimento  String   @map("nome_alimento")
+  categoria     String
+  dataEvento    DateTime @map("data_evento") @db.Date
+  tipoEvento    String   @map("tipo_evento")
+
+  utente        Utente   @relation(fields: [idUtente], references: [id], onDelete: Cascade)
+
+  @@map("registro_consumi")
+}

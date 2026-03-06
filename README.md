@@ -268,7 +268,7 @@ SmartMeal addresses this by shifting from a *reactive* approach (notifying about
 B.Sc. Computer Engineering and Automation — Politecnico di Bari (2025)
 Supervisor: Prof. Marina Mongiello
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?logo=linkedin)](https://linkedin.com/in/your-linkedin-username)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?logo=linkedin)](https://www.linkedin.com/in/lorenzo-mignone-6129aa3b4/)
 [![GitHub](https://img.shields.io/badge/GitHub-Follow-181717?logo=github)](https://github.com/Loremig02)
 
 ---

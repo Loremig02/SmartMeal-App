@@ -2,6 +2,8 @@
 
 > **Intelligent home pantry management and food waste reduction**
 
+🌟 **Live Demo:** [smartmeal-app-ten.vercel.app](https://smartmeal-app-ten.vercel.app/) 🌟
+
 SmartMeal is a full-stack web application that combines digital pantry management with generative AI. The **Smart Chef** module analyzes ingredients close to their expiration date and generates personalized recipes in real time, shifting food waste management from reactive to proactive.
 
 Developed as a Bachelor's thesis in Computer Engineering and Automation at **Politecnico di Bari** (A.Y. 2024/2025).
